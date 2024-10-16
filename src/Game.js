@@ -3,6 +3,7 @@ export const HUMAN = "human";
 
 // Minimax algorithm with alpha-beta pruning
 function minMax(state, alpha, beta, maximizingPlayer) {
+  // Base case: if the game state is at 1, the maximizing player loses
   if (state === 1) {
     return maximizingPlayer ? -1 : 1;
   }
@@ -11,10 +12,10 @@ function minMax(state, alpha, beta, maximizingPlayer) {
     let maxEval = -Infinity;
     for (let move of [1, 2]) {
       if (state - move > 0) {
-        const score = minMax(state - move, alpha, beta, false); // Changed 'eval' to 'score'
+        const score = minMax(state - move, alpha, beta, false);
         maxEval = Math.max(maxEval, score);
         alpha = Math.max(alpha, score);
-        if (beta <= alpha) break;
+        if (beta <= alpha) break; // Alpha-beta pruning
       }
     }
     return maxEval;
@@ -22,10 +23,10 @@ function minMax(state, alpha, beta, maximizingPlayer) {
     let minEval = Infinity;
     for (let move of [1, 2]) {
       if (state - move > 0) {
-        const score = minMax(state - move, alpha, beta, true); // Changed 'eval' to 'score'
+        const score = minMax(state - move, alpha, beta, true);
         minEval = Math.min(minEval, score);
         beta = Math.min(beta, score);
-        if (beta <= alpha) break;
+        if (beta <= alpha) break; // Alpha-beta pruning
       }
     }
     return minEval;
@@ -41,6 +42,7 @@ function movesCreated(state) {
 export function moveByComputer(state) {
   let bestMove = null;
   let maxEval = -Infinity;
+  
   for (let move of movesCreated(state)) {
     const newState = state - move;
     const score = minMax(newState, -Infinity, Infinity, false);
@@ -49,5 +51,6 @@ export function moveByComputer(state) {
       bestMove = move;
     }
   }
+
   return bestMove;
 }
