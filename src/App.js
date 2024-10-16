@@ -32,7 +32,6 @@ function App() {
   const takeCoins = (num) => {
     const remainingCoins = coins - num;
 
-    // Animate coin movement to the current player's side
     if (currentPlayer === COMPUTER) {
       setComputerCoins(computerCoins + num);
     } else {
@@ -58,7 +57,7 @@ function App() {
   const handleComputerMove = () => {
     const move = moveByComputer(coins);
     setComputerMoves(`Computer took ${move} coin${move > 1 ? 's' : ''}. Coins remaining after computer's move: ${coins - move}`);
-    setHumanMoves(''); // Hide human's message when computer takes a turn
+    setHumanMoves('');
     takeCoins(move);
   };
 
@@ -66,30 +65,30 @@ function App() {
     if (currentPlayer === COMPUTER && !gameOver && isGameStarted) {
       setTimeout(() => {
         handleComputerMove();
-      }, 1000); // 5-second delay for computer move
+      }, 1000);
     }
   }, [currentPlayer, gameOver, isGameStarted]);
 
   const handleHumanMove = (num) => {
     setHumanMoves(`You took ${num} coin${num > 1 ? 's' : ''}. Coins remaining after your move: ${coins - num}`);
-    setComputerMoves(''); // Hide computer's message when human takes a turn
+    setComputerMoves('');
     takeCoins(num);
   };
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100" style={{ backgroundColor: '#edf1fc' }}>
       <div className="text-center">
-        <div style={{ position: 'absolute', top: 20, right: 20 }}>
-          {/* Instruction Icon */}
+        {/* Adjusted Question Mark Icon */}
+        <div style={{ position: 'absolute', top: 100, right: 100 }}>
           <i
             className="fas fa-question-circle"
             style={{ fontSize: '2rem', color: '#333', cursor: 'pointer' }}
             onClick={() => setShowInstructions(true)}
           />
         </div>
-
-        <h1>Two-Stick Nim Game</h1>
-
+        
+        <h1 className="display-4 mb-3">Two-Stick Nim Game</h1>
+  
         {!isGameStarted && (
           <div>
             <label>Select who goes first:</label>
@@ -120,7 +119,7 @@ function App() {
             </button>
           </div>
         )}
-
+  
         {isGameStarted && (
           <>
             <div className="row mt-4">
@@ -133,7 +132,7 @@ function App() {
                 )}
                 <div className="coin-stack">{'🪙'.repeat(computerCoins)}</div>
               </div>
-
+  
               <div className="col-4 text-center">
                 <div>
                   <span style={{ fontSize: '2rem', display: 'block' }}>{'🪙'.repeat(coins)}</span>
@@ -147,7 +146,7 @@ function App() {
                   )}
                 </div>
               </div>
-
+  
               <div className="col-4 text-center">
                 <i className="fas fa-user" style={{ fontSize: '3rem' }}></i>
                 {humanMoves && (
@@ -158,7 +157,7 @@ function App() {
                 <div className="coin-stack">{'🪙'.repeat(humanCoins)}</div>
               </div>
             </div>
-
+  
             {!gameOver && currentPlayer === HUMAN && (
               <div className="mt-3">
                 <button className="btn btn-dark m-2" onClick={() => handleHumanMove(1)}>
@@ -169,7 +168,7 @@ function App() {
                 </button>
               </div>
             )}
-
+  
             {gameOver && (
               <button className="btn btn-success mt-3" onClick={() => window.location.reload()}>
                 Play Again
@@ -177,8 +176,7 @@ function App() {
             )}
           </>
         )}
-
-        {/* Instruction Modal */}
+  
         <Modal show={showInstructions} onHide={() => setShowInstructions(false)}>
           <Modal.Header closeButton>
             <Modal.Title>Game Instructions</Modal.Title>
@@ -204,6 +202,7 @@ function App() {
       </div>
     </div>
   );
+  
 }
 
 export default App;
