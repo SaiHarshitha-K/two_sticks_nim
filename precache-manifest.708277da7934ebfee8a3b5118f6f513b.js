@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8c1d53535b1f9cbadf6a54db67eb2ecd",
+    "revision": "7ee1e86ad47800b7e461e53e7826c97f",
     "url": "/two_sticks_nim/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/two_sticks_nim/static/css/2.b1e21a25.chunk.css"
   },
   {
-    "revision": "0bc22d0d5287e3593b14",
-    "url": "/two_sticks_nim/static/css/main.65928e0f.chunk.css"
+    "revision": "e30390cdec9db88b4088",
+    "url": "/two_sticks_nim/static/css/main.3b66f378.chunk.css"
   },
   {
     "revision": "38206db2c762c9b52fec",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/two_sticks_nim/static/js/3.62d5139d.chunk.js"
   },
   {
-    "revision": "0bc22d0d5287e3593b14",
-    "url": "/two_sticks_nim/static/js/main.4d21ae70.chunk.js"
+    "revision": "e30390cdec9db88b4088",
+    "url": "/two_sticks_nim/static/js/main.1b3ad350.chunk.js"
   },
   {
     "revision": "13d6b12b9e167812fd54",
