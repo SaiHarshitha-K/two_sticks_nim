@@ -39,7 +39,7 @@
 
 /* App.css */
 body {
-  background-color: #ff9a8a; /* Peach background for the whole window */
+  background-color: #edf1fc; /* Peach background for the whole window */
 }
 
 .coin {
@@ -68,4 +68,16 @@ body {
 .player-button.selected {
   background-color: #696969;
   color: white;
+}
+
+@media (max-width: 768px) {
+  .display-4 {
+    font-size: 2rem;
+  }
+  .btn {
+    font-size: 0.9rem;
+  }
+  .coin-stack {
+    font-size: 1.5rem;
+  }
 }
